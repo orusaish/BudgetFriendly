@@ -9,6 +9,7 @@ var passport = require("./config/passportConfig");
 var app = express();
 
 var PORT = process.env.PORT || 3339;
+var db = require("./models");
 
 //express middleware
 app.use(express.static("public"));
@@ -32,7 +33,8 @@ app.use(passport.session());
 
 // routes
 app.use(routes);
-
-app.listen(PORT, function() {
-  console.log(`Listening on http://localhost:${PORT}`);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log(`Listening on http://localhost:${PORT}`);
+  });
 });
