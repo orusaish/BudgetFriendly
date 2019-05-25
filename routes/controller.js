@@ -1,4 +1,5 @@
 var express = require("express");
+var auth = require("../config/middleware/auth");
 
 var db = require("../models");
 
