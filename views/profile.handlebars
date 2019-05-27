@@ -1,0 +1,79 @@
+<nav class="nav">
+    <a class="nav-link active" href="#">Home</a>
+    <a class="nav-link" href="#">Profile</a>
+</nav>
+
+
+<div class="container mt-5">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Hello John</h1>
+        </div>
+
+    </div>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 1 Month
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> 3 Months
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> 1 Year
+        </label>
+        <input type="image" src="/assets/images/pieChart.png" width="50" height="50">
+    </div>
+    <br>
+    <br>
+    <p>Below is where the table will be. Right now, it only has three categories.</p>
+    <div class="row justify-content-center">
+        <table class="text-center" border="1" cellpadding="10">
+            <tr bgcolor="orange">
+                <th>Date</th>
+                <th>Categories</th>
+                <th>Costs</th>
+            </tr>
+            <tr>
+                <td>Jan, 20, 2019</td>
+                <td>Housing</td>
+                <td>1000.00</td>
+            </tr>
+            <tr>
+                <td>Feb, 30, 2019</td>
+                <td>Enterntainment</td>
+                <td>10.00</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <br><br>
+    <div class="row justify-content-center">
+        <button>New Transaction</button>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<footer>
+    <div class="footer">&copy; Copyright 2019</div>
+</footer>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    th {
+        background-color: grey;
+        color: white;
+    }
+</style>
