@@ -5,18 +5,19 @@ var db = require("../models");
 
 passport.use(
   new LocalStrategy(
+    // change default sign-in from username to email
     {
-      usernameField: "username"
+      usernameField: "email"
     },
-    function(username, password, done) {
+    function(email, password, done) {
       db.User.findOne({
         where: {
-          username: username
+          email: email
         }
       }).then(function(user) {
         if (!user) {
           return done(null, false, {
-            message: "Username not found."
+            message: "Email not found."
           });
         } else if (!user.validPassword(password)) {
           return done(null, false, {

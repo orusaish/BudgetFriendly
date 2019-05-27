@@ -3,13 +3,13 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
 
-var routes = require("./routes/controller");
+// dependencies
 var passport = require("./config/passportConfig");
-
-var app = express();
-
-var PORT = process.env.PORT || 3339;
 var db = require("./models");
+
+// server initialization
+var app = express();
+var PORT = process.env.PORT || 3339;
 
 //express middleware
 app.use(express.static("public"));
@@ -32,7 +32,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
-app.use(routes);
+app.use("/", require("./routes/index"));
+app.use("/users/", require("./routes/users"));
+
+// sync db and start server
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);

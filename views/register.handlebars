@@ -1,17 +1,17 @@
 <h3>Complete form to register</h3>
 
-<form action="" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
+<form action="/users/register" method="POST">
+    <label for="newName">Username</label>
+    <input type="text" name="newName" id="newName">
 
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email">
+    <label for="newEmail">Email</label>
+    <input type="email" name="newEmail" id="newEmail">
     <br><br>
-    <label for="password">Enter a password</label>
-    <input type="password" name="password" id="password">
+    <label for="newPassword">Enter a password</label>
+    <input type="password" name="newPassword" id="newPassword">
 
-    <label for="password2">ReEnter the password</label>
-    <input type="password2" name="password2" id="password2">
-
-    <button type="submit">Create account</button>
+    <label for="newPassword2">ReEnter the password</label>
+    <input type="password" name="newPassword2" id="newPassword2">
+    <br><br>
+    <input type="submit" id="registerSubmit" value="Create account">
 </form>
