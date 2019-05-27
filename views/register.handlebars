@@ -1,5 +1,6 @@
 <h3>Complete form to register</h3>
 
+{{> errorMessages}}
 <form action="/users/register" method="POST">
     <label for="newName">Username</label>
     <input type="text" name="newName" id="newName">

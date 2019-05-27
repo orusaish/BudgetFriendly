@@ -24,15 +24,7 @@ var password = $("#password")
   .val()
   .trim();
 
-var msgs = [];
-
 // registration form functions
 $("#registerSubmit").on("submit", e => {
   e.preventDefault();
-
-  // if passwords do not match
-  if (newPassword !== newPassword2) {
-    msgs.push({ message: "Passwords do not match." });
-    return;
-  }
 });

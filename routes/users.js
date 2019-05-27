@@ -4,7 +4,7 @@ var router = express.Router();
 var bcrypt = require("bcrypt");
 var passport = require("passport");
 // dependencies
-var User = require("../models/users");
+var db = require("../models");
 var auth = require("../config/middleware/auth");
 
 // login page
@@ -24,20 +24,26 @@ router.post("/register", function(req, res) {
   var password = req.body.newPassword;
   var password2 = req.body.newPassword2;
   var errors = [];
-  console.log(name, email, password, password2);
 
+  // check if all fields are filled out
   if (!name || !email || !password || !password2) {
-    errors.push({ message: "Please fill out form" });
+    errors.push("Please fill out form");
   }
 
+  // check if passwords match
   if (password !== password2) {
-    errors.push({ message: "Passwords do not match" });
+    errors.push("Passwords do not match");
   }
-  console.log(errors);
 
   if (errors.length > 0) {
-    res.render("register", { errors, name, email, password, password2 });
-  } else res.send("howdy");
+    res.render("register", { errors });
+  } else {
+    db.User.create({
+      name: name,
+      email: email,
+      password: password
+    }).then(res.redirect("login"));
+  }
 });
 
 module.exports = router;
