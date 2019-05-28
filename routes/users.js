@@ -46,4 +46,15 @@ router.post("/register", function(req, res) {
   }
 });
 
+// login page
+/* router.post("/login", function(req, res) {
+  var email = req.body.email;
+  var password = req.body.password;
+
+  db.User.findOne({ where: { email: email } }).then(function(data) {
+    console.log(data.User.name);
+    res.send(`Hi ${name}`);
+  });
+}); */
+
 module.exports = router;

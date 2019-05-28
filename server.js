@@ -36,7 +36,7 @@ app.use("/", require("./routes/index"));
 app.use("/users/", require("./routes/users"));
 
 // sync db and start server
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);
   });
