@@ -24,7 +24,7 @@ app.set("view engine", "handlebars");
 
 app.use(controller);
 app.use(transactions);
-db.sequelize.sync().then(function() {
+
 // passport middleware
 app.use(
   session({
@@ -38,11 +38,11 @@ app.use(passport.session());
 require("./config/middleware/auth");
 
 // routes
-app.use("/", require("./routes/index"));
+app.use("/", require("./routes/controller"));
 app.use("/users/", require("./routes/users"));
 
 // sync db and start server
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);
   });
