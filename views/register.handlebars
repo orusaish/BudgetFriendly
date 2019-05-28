@@ -1,0 +1,18 @@
+<h3>Complete form to register</h3>
+
+{{> errorMessages}}
+<form action="/users/register" method="POST">
+    <label for="newName">Username</label>
+    <input type="text" name="newName" id="newName">
+
+    <label for="newEmail">Email</label>
+    <input type="email" name="newEmail" id="newEmail">
+    <br><br>
+    <label for="newPassword">Enter a password</label>
+    <input type="password" name="newPassword" id="newPassword">
+
+    <label for="newPassword2">ReEnter the password</label>
+    <input type="password" name="newPassword2" id="newPassword2">
+    <br><br>
+    <input type="submit" id="registerSubmit" value="Create account">
+</form>
