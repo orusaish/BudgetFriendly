@@ -25,6 +25,6 @@ var password = $("#password")
   .trim();
 
 // registration form functions
-$("#registerSubmit").on("submit", e => {
+/* $("#registerSubmit").on("submit", e => {
   e.preventDefault();
-});
+}); */
