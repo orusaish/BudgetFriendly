@@ -1,6 +1,6 @@
 var db = require("../models");
 var express = require("express");
-
+var moment = require("moment");
 var router = express.Router();
 
 // Routes
@@ -13,11 +13,17 @@ router.get("/users/:id/transactions", function(req, res) {
     }
   }).then(function(txns) {
     var amount = 0;
+    var txnsCopy = [];
     for (var i = 0; i < txns.length; i++) {
       amount = amount + parseFloat(txns[i].amount);
+      txnsCopy.push({
+        createdAt: moment(txns[i].createdAt).format("LLL"),
+        category: txns[i].category,
+        amount: txns[i].amount
+      });
     }
-    console.log(txns);
-    res.render("transactions", { transactions: txns, total: amount });
+
+    res.render("transactions", { transactions: txnsCopy, total: amount });
   });
 });
 
