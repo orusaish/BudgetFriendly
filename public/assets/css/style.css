@@ -6,6 +6,26 @@ body {
   color: #505962
 }
 
+.dropdown{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 150px;
+}
+.dropdown-button{
+  padding: 10px;
+  background: white;
+}
+
+
+.dropdown-button a{
+  color: #333;
+  text-decoration: none;
+} 
+
+.dropdown ul{
+  list-style-type: none;
+}
+
 .narrow {
   width: 75%;
   margin: 0 auto;
