@@ -13,11 +13,6 @@ router.get("/", function (req, res) {
 
 // To get to the profile page
 router.get("/api/profile", function (req, res) {
-  db.Post.findAll({
-    where: {
-      category: req.params.category
-    }
-  })
   res.render("profile");
 });
 
