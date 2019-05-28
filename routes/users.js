@@ -62,6 +62,11 @@ router.post("/register", function(req, res) {
   }
 });
 
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
 // login page
 /* router.post("/login", function(req, res) {
   var email = req.body.email;
