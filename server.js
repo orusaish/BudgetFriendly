@@ -1,6 +1,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
-var routes = require("./routes/controller");
+var controller = require("./routes/controller");
+var transactions = require("./routes/transactions");
 
 var app = express();
 
@@ -14,8 +15,9 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(routes);
-db.sequelize.sync({ force: true }).then(function() {
+app.use(controller);
+app.use(transactions);
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);
   });
