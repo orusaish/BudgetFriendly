@@ -1,9 +1,45 @@
-<nav class="nav">
+{{!-- <nav class="nav">
     <a class="nav-link active" href="#">Home</a>
     <a class="nav-link" href="#">Profile</a>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">BudgetFriendly</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <ul>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">"User's username or fullname"</a>
+                        <a class="dropdown-item" href="#">App Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                </div>
+            </ul>
+        </form>
+    </div>
 </nav>
 
-
+<br>
+<br>
 <div class="container mt-5">
     <div class="jumbotron">
         <div class="container">
@@ -29,19 +65,16 @@
     <div class="row justify-content-center">
         <table class="text-center" border="1" cellpadding="10">
             <tr bgcolor="orange">
-                <th>Date</th>
                 <th>Categories</th>
-                <th>Costs</th>
+                <th>Amount</th>
             </tr>
             <tr>
-                <td>Jan, 20, 2019</td>
                 <td>Housing</td>
                 <td>1000.00</td>
             </tr>
             <tr>
-                <td>Feb, 30, 2019</td>
                 <td>Enterntainment</td>
-                <td>10.00</td>
+                <td>20</td>
             </tr>
 
         </table>
@@ -49,7 +82,39 @@
 
     <br><br>
     <div class="row justify-content-center">
-        <button>New Transaction</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo">New Transaction</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New Transaction</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST" action="/users/1/profile">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Category:</label>
+                                <input type="text" class="form-control" id="category" name="category" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Amount:</label>
+                                <input type="number" class="form-control" id="amount" name="amount" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" id="addButton" value="Add Transaction" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <br>

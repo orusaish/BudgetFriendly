@@ -21,10 +21,10 @@ router.get("/users/:id/transactions", function(req, res) {
   });
 });
 
-router.post("/user/:id/profile", function(req, res) {
+router.post("/users/:id/profile", function(req, res) {
   // console.log(req.body);
   db.Transactions.create({
-    Userid: req.params.id,
+    UserId: req.params.id,
     category: req.body.category,
     amount: req.body.amount
   }).then(function() {
