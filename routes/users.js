@@ -17,14 +17,7 @@ router.get("/register", function(req, res) {
   res.render("register");
 });
 
-/* router.post("/login", passport.authenticate("local"), function(req, res) {
-  // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-  // So we're sending the user back the route to the members page because the redirect will happen on the front end
-  // They won't get this or even be able to access this page if they aren't authed
-  // res.json("/members");
-  res.send("logged in");
-}); */
-
+// login user
 router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "login" }),
@@ -43,12 +36,12 @@ router.post("/register", function(req, res) {
 
   // check if all fields are filled out
   if (!name || !email || !password || !password2) {
-    errors.push("Please fill out form");
+    errors.push({ message: "Please fill out form" });
   }
 
   // check if passwords match
   if (password !== password2) {
-    errors.push("Passwords do not match");
+    errors.push({ message: "Passwords do not match" });
   }
 
   if (errors.length > 0) {
@@ -62,20 +55,22 @@ router.post("/register", function(req, res) {
   }
 });
 
+//logout user
 router.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
 
-// login page
-/* router.post("/login", function(req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-
-  db.User.findOne({ where: { email: email } }).then(function(data) {
-    console.log(data.User.name);
-    res.send(`Hi ${name}`);
-  });
-}); */
+// get user data
+router.get("/data", function(req, res) {
+  if (!req.user) {
+    res.json({});
+  } else {
+    res.json({
+      email: req.user.email,
+      name: req.user.name
+    });
+  }
+});
 
 module.exports = router;

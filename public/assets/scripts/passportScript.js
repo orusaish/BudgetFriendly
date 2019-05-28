@@ -1,4 +1,4 @@
-// dependencies
+/* // dependencies
 var sequelize = require("sequelize");
 var db = require("");
 
@@ -22,9 +22,15 @@ var email = $("#email")
   .trim();
 var password = $("#password")
   .val()
-  .trim();
+  .trim(); */
 
 // registration form functions
 /* $("#registerSubmit").on("submit", e => {
   e.preventDefault();
 }); */
+
+$.get("/users/data").then(function(data) {
+  console.log(data);
+
+  var name = data.name;
+});
