@@ -6,10 +6,10 @@ var router = express.Router();
 // Routes
 // =============================================================
 // Get route for retrieving a single User information
-router.get("/users/:id/transactions", function(req, res) {
+router.get("/transactions", function(req, res) {
   db.Transactions.findAll({
     where: {
-      UserId: req.params.id
+      UserId: req.user.id
     }
   }).then(function(txns) {
     var amount = 0;
@@ -23,18 +23,22 @@ router.get("/users/:id/transactions", function(req, res) {
       });
     }
 
-    res.render("transactions", { transactions: txnsCopy, total: amount });
+    res.render("transactions", {
+      transactions: txnsCopy,
+      total: amount,
+      layout: false
+    });
   });
 });
 
-router.post("/users/:id/profile", function(req, res) {
+router.post("/profile", function(req, res) {
   // console.log(req.body);
   db.Transactions.create({
-    UserId: req.params.id,
+    UserId: req.user.id,
     category: req.body.category,
     amount: req.body.amount
   }).then(function() {
-    res.redirect("/users/" + req.params.id + "/transactions");
+    res.redirect("/transactions");
   });
 });
 module.exports = router;
