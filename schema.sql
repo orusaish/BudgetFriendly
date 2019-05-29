@@ -2,3 +2,6 @@
 DROP DATABASE IF EXISTS budgetfriendly_db;
 -- Creates the "blogger" database --
 CREATE DATABASE budgetfriendly_db;
+
+USE budgetfriendly_db;
+
