@@ -3,38 +3,32 @@
     <a class="nav-link" href="#">Profile</a>
 </nav> --}}
 
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">
-        <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        BudgetFriendly
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class=" navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            BudgetFriendly
+        </a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">"User's username or fullname"</a>
-                        <a class="dropdown-item" href="#">App Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log Out</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            data-display="static" aria-haspopup="true" aria-expanded="false">
+                            Profile
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg-right">
+                            <button class="dropdown-item" type="button">"User's username or fullname"</button>
+                            <button class="dropdown-item" type="button">App Settings</button>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" type="button">Log out</button>
+                        </div>
                     </div>
                 </div>
             </ul>
@@ -42,8 +36,13 @@
     </div>
 </nav>
 
+
 <br>
 <br>
+<br>
+<br>
+<br>
+
 <div class="container mt-5">
     <div class="jumbotron">
         <div class="container">
@@ -85,9 +84,17 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Category:</label>
-                                    <input type="text" class="form-control" id="category">
+                                <div class="dropdown show">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Category
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Amount:</label>
