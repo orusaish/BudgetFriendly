@@ -22,9 +22,6 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(controller);
-app.use(transactions);
-
 // passport middleware
 app.use(
   session({
@@ -40,6 +37,7 @@ require("./config/middleware/auth");
 // routes
 app.use("/", require("./routes/controller"));
 app.use("/users/", require("./routes/users"));
+app.use(transactions);
 
 // sync db and start server
 db.sequelize.sync().then(function() {

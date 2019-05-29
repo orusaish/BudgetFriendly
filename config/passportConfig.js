@@ -15,7 +15,7 @@ passport.use(
           email: email
         }
       }).then(function(user) {
-        console.log(user.password, password);
+        // console.log(user.password, password);
         if (!user) {
           return done(null, false, {
             message: "Email not found."
@@ -32,11 +32,13 @@ passport.use(
 );
 
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, user.id);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(userId, cb) {
+  db.User.findByPk(userId).then(function(user) {
+    cb(null, user);
+  });
 });
 
 module.exports = passport;
