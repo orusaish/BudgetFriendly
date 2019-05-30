@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
 // To get to the profile page
 router.get("/api/profile", function (req, res) {
   res.render("profile", {
-    style: 'style.css'
+    style: 'styleProfile.css'
   });
 });
 
