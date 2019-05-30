@@ -22,7 +22,7 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "login" }),
   function(req, res) {
-    res.render("profile");
+    res.redirect("/profile");
     db.User.findOne({ where: { email: req.body.email } }).then(function(user) {
       var id = user.id;
       console.log(id);
