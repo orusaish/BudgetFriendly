@@ -1,0 +1,35 @@
+<h1>User Transactions</h1>
+
+
+
+{{!-- <ul>
+    {{#each transactions}}
+    <li>
+        <p>category: {{this.category}}</p>
+        <p>amount: {{this.amount}}</p>
+        <p>date: {{this.createdAt}}</p>
+    </li>
+    {{/each}}
+</ul> --}}
+
+
+<table class="text-center" border="1" cellpadding="10">
+    <tr bgcolor="orange">
+        <th>Date</th>
+        <th>Category</th>
+        <th>Amount</th>
+    </tr>
+    {{#each transactions}}
+    <tr>
+        <td>{{this.createdAt}}</td>
+        <td>{{this.category}}</td>
+        <td>{{this.amount}}</td>
+    </tr>
+    {{/each}}
+    <tr>
+        <td></td>
+        <td>Total:</td>
+        <td>{{total}}</td>
+    </tr>
+
+</table>

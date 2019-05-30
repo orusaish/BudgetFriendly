@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       len: [20]
     },
     amount: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      type: DataTypes.DECIMAL(10, 2),
 
       allowNull: false
     }
