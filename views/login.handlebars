@@ -1,13 +1,28 @@
-<form action="/users/login" method="POST">
-    <label for="email">Email</label>
-    <input name="email" type="email" id="email">
-
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-
-    <input type="submit" id="loginSubmit" value="Login">
-
-    <a href="/users/register">
-        <p>Click here to register</p>
-    </a>
-</form>
+<div class="row justify-content-center d-flex align-items-center align-self-center mt-5">
+    <div class="col-sm-6 m-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4>Login</h4>
+            </div>
+            <div class="card-body">
+                {{> errorMessages}}
+                <form action="/users/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input name="email" type="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" id="loginSubmit" value="Login" class="btn btn-primary">
+                    </div>
+                    <a href="/users/register">
+                        <p>Don't have an account. Click here to register</p>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
