@@ -3,6 +3,7 @@ var express = require("express");
 var moment = require("moment");
 var router = express.Router();
 var Sequelize = require("sequelize");
+var auth = require("../config/middleware/auth");
 
 // Routes
 // =============================================================
@@ -39,7 +40,7 @@ router.get("/transactions", function(req, res) {
 });
 
 // To get to the profile page
-router.get("/profile", function(req, res) {
+router.get("/profile", auth, function(req, res) {
   res.render("profile", {
     style: "styleProfile.css"
   });

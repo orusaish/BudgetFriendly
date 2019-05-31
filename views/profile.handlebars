@@ -3,22 +3,6 @@
     <a class="nav-link" href="#">Profile</a>
 </nav> --}}
 
-
-<nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
-    <div class=" navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand" href="#">
-            <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-            BudgetFriendly
-        </a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <ul>
-                <div class="nav-item dropdown">
-                    {{!-- <div class="btn-group">
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
         <div class=" navbar-collapse" id="navbarSupportedContent">
@@ -45,28 +29,20 @@
                             <div class="dropdown-divider"></div>
                             <button class="dropdown-item" type="button">Log out</button>
                         </div> --}}
-                    <div class="dropdown" id="profileDropdown">
-                        <div class="dropdown-button" id="profileDropdown-button">
-                            <a href="#">PROFILE</a>
+                        <div class="dropdown" id="profileDropdown">
+                            <div class="dropdown-button" id="profileDropdown-button">
+                                <a href="#">PROFILE</a>
+                            </div>
+                            <ul>
+                                <li><button class="dropdown-item" type="button">"User"</button></li>
+                                <li><a class="dropdown-item" href="/users/logout">Log out</a></li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li><button class="dropdown-item" type="button">"User"</button></li>
-                            <li><button class="dropdown-item" type="button" href="/users/index">Log out</button>
-                            </li>
-                        </ul>
                     </div>
-                    <<<<<<< HEAD <ul>
-                        <li><button class="dropdown-item" type="button">"User"</button></li>
-                        <li><button class="dropdown-item" type="button">App Settings</button></li>
-                        <li><button class="dropdown-item" type="button">Log out</button></li>
-            </ul>
-            =======
-            >>>>>>> 450a38f91d83334f8ee42958c0c4cf1cda8e8d89
-    </div>
-    </div>
-    </ul>
-    </form>
-    </div>
+        </div>
+        </ul>
+        </form>
+</div>
 </nav>
 </div>
 
@@ -79,7 +55,7 @@
 
 <div class="container mt-5">
 
-    <h1 class="ProfileWelcome"> Hello{{name}} </h1>
+    <h1 class="ProfileWelcome"> Hello{{User.name}} </h1>
     <br>
     <div class="btn-group btn-group-toggle" data-toggle="buttons" id="timeOptions">
         <label class="btn btn-secondary active">
@@ -100,32 +76,26 @@
 
     <div id="tableContainer"></div>
     <script>
-
         function populateTransactions(value) {
             if (value == "all") {
                 $.get("/transactions").then(function (data) {
                     $("#tableContainer").html(data);
                 })
-
             } else {
                 var Mdate = moment().subtract(parseInt(value), 'months').format();
                 //console.log("one month back ", Mdate);
                 $.get("/transactions", { 'from': Mdate }).then(function (data) {
                     //console.log(data); 
-
                     $("#tableContainer").html(data);
                 })
             }
             // Make an AJAX request to /transactions
             // Put the results inside #tableContainer
-
         }
         $("#timeOptions input").change(function (event) {
             populateTransactions(event.target.value);
         });
         populateTransactions("all");
-
-
     </script>
     <div class="row justify-content-center">
 
