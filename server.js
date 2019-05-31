@@ -12,6 +12,7 @@ var db = require("./models");
 // server initialization
 var app = express();
 var PORT = process.env.PORT || 3339;
+var db = require("./models");
 
 //express middleware
 app.use(express.static("public"));
