@@ -12,11 +12,11 @@ router.get("/", function(req, res) {
 });
 
 // To get to the profile page
-router.get("/api/profile", function(req, res) {
+router.get("/profile", function(req, res) {
   res.render("profile");
 });
 
-router.post("/api/profile", function(req, res) {
+router.post("/profile", function(req, res) {
   // console.log(req.body);
   db.Transactions.create({
     category: req.body.category,
