@@ -29,7 +29,6 @@ router.post(
     res.redirect("/profile");
     db.User.findOne({ where: { email: req.body.email } }).then(function(user) {
       var id = user.id;
-      console.log(id);
     });
   }
 );
@@ -67,7 +66,7 @@ router.post("/register", function(req, res) {
           // encrypts password
           if (err) throw err;
           password = hash;
-          success.push("Account created succefully. Please log in.");
+          success.push("Account created successfully. Please log in.");
           db.User.create({
             name: name,
             email: email,

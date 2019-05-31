@@ -4,8 +4,5 @@ module.exports = function(req, res, next) {
     return next();
   }
   // if user not logged in
-  if (req.user === "undefined") {
-    return res.redirect("/");
-  }
   return res.redirect("/");
 };
