@@ -12,6 +12,7 @@ var db = require("./models");
 // server initialization
 var app = express();
 var PORT = process.env.PORT || 3339;
+var db = require("./models");
 
 //express middleware
 app.use(express.static("public"));
@@ -37,6 +38,7 @@ require("./config/middleware/auth");
 // routes
 app.use("/", require("./routes/controller"));
 app.use("/users/", require("./routes/users"));
+app.use(controller);
 app.use(transactions);
 
 // sync db and start server

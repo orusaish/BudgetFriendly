@@ -37,6 +37,7 @@ router.post("/register", function(req, res) {
   var password = req.body.newPassword;
   var password2 = req.body.newPassword2;
   var errors = [];
+  var success = [];
 
   // check if all fields are filled out
   if (!name || !email || !password || !password2) {
@@ -48,15 +49,29 @@ router.post("/register", function(req, res) {
     errors.push("Passwords do not match");
   }
 
+  // if there are errors this will output those errors on register page
   if (errors.length > 0) {
     res.render("register", { errors });
   } else {
-    db.User.findOne();
-    db.User.create({
-      name: name,
-      email: email,
-      password: password
-    }).then(res.redirect("login"));
+    db.User.findOne({ where: { email: email } }).then(function(user) {
+      // checks if user already exists
+      if (user) {
+        errors.push("Account already exists");
+        res.render("register", { errors });
+      } else {
+        bcrypt.hash(password, 10, function(err, hash) {
+          // encrypts password
+          if (err) throw err;
+          password = hash;
+          success.push("Account created succefully. Please log in.");
+          db.User.create({
+            name: name,
+            email: email,
+            password: password
+          }).then(res.render("login", { success }));
+        });
+      }
+    });
   }
 });
 
