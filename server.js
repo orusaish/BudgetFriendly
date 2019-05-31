@@ -12,7 +12,6 @@ var db = require("./models");
 // server initialization
 var app = express();
 var PORT = process.env.PORT || 3339;
-var db = require("./models");
 
 //express middleware
 app.use(express.static("public"));
@@ -42,8 +41,8 @@ app.use(controller);
 app.use(transactions);
 
 // sync db and start server
-db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);
   });
 });

@@ -17,7 +17,7 @@ body {
   
   .dropdown{
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 0px;
     width: 150px;
   }
   .dropdown-button{
@@ -52,13 +52,14 @@ body {
 
 #profileDropdown {
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 10px;
     width: 150px;
 }
 
 #profileDropdown-button{
     padding: 10px;
     background: white;
+    /* border-radius: 20px; */
 }
 
 #profileDropdown-button a{
