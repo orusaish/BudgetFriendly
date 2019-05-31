@@ -40,7 +40,6 @@ router.get("/transactions", function(req, res) {
 
 router.get("/profile", function(req, res) {
   res.render("profile");
-  ``;
 });
 
 router.post("/profile", function(req, res) {

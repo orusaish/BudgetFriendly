@@ -11,17 +11,4 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
-// To get to the profile page
-router.get("/profile", function(req, res) {
-  res.render("profile");
-});
-
-router.post("/profile", function(req, res) {
-  // console.log(req.body);
-  db.Transactions.create({
-    category: req.body.category,
-    amount: req.body.amount
-  }).then(res.send("hello"));
-});
-
 module.exports = router;
