@@ -19,7 +19,7 @@ passport.use(
       }).then(function(user) {
         if (!user) {
           console.log("user not found");
-          errors.push("Email not found");
+          errors.push("User does not exist");
           return done(null, false, { errors });
         }
 

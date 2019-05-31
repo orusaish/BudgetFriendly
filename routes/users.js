@@ -55,13 +55,13 @@ router.post("/register", function(req, res) {
 
   // if there are errors this will output those errors on register page
   if (errors.length > 0) {
-    res.render("register", { errors });
+    res.render("register", { errors, style: "styleRegistration.css" });
   } else {
     db.User.findOne({ where: { email: email } }).then(function(user) {
       // checks if user already exists
       if (user) {
         errors.push("Account already exists");
-        res.render("register", { errors });
+        res.render("register", { errors, style: "styleRegistration.css" });
       } else {
         bcrypt.hash(password, 10, function(err, hash) {
           // encrypts password
