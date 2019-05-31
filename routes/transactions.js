@@ -38,8 +38,11 @@ router.get("/transactions", function(req, res) {
   });
 });
 
+// To get to the profile page
 router.get("/profile", function(req, res) {
-  res.render("profile");
+  res.render("profile", {
+    style: "styleProfile.css"
+  });
 });
 
 router.post("/profile", function(req, res) {

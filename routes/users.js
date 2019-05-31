@@ -7,14 +7,18 @@ var passport = require("passport");
 var db = require("../models");
 var auth = require("../config/middleware/auth");
 
-// login page
+// To get to the login page
 router.get("/login", function(req, res) {
-  res.render("login");
+  res.render("login", {
+    style: "styleLogin.css"
+  });
 });
 
-// register page
+// To get to the login page
 router.get("/register", function(req, res) {
-  res.render("register");
+  res.render("register", {
+    style: "styleRegistration.css"
+  });
 });
 
 // login user
