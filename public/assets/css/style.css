@@ -3,7 +3,17 @@
 body {
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
-  color: #505962
+  color: #505962;
+  background-size:cover;
+  /* background-image: url(../images/registrationBackground.jpg); */
+}
+
+.ProfileWelcome{
+  font-family: 'Ranga', cursive;
+}
+
+.navbar{
+  vertical-align: top;
 }
 
 .dropdown{
@@ -26,11 +36,6 @@ body {
   list-style-type: none;
 }
 
-.narrow {
-  width: 75%;
-  margin: 0 auto;
-  padding-top: 2rem;
-}
 .btn-md {
   border-width: medium;
   border-radius: 0;
