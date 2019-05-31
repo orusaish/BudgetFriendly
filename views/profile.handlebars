@@ -58,20 +58,52 @@
 
     <h1 class="ProfileWelcome"> Hello{{name}} </h1>
     <br>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="timeOptions">
         <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" value="1 month" checked> 1 Month
+            <input type="radio" name="options" id="option1" autocomplete="off" value="all" checked> All transactions
         </label>
         <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off" value="3 month"> 3 Months
+            <input type="radio" name="options" id="option2" autocomplete="off" value="1"> 1 Month
         </label>
         <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off" value="1 year"> 1 Year
+            <input type="radio" name="options" id="option3" autocomplete="off" value="3"> 3 Months
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option4" autocomplete="off" value="12"> 1 Year
         </label>
     </div>
     <br>
     <br>
 
+    <div id="tableContainer"></div>
+    <script>
+
+        function populateTransactions(value) {
+            if (value == "all") {
+                $.get("/transactions").then(function (data) {
+                    $("#tableContainer").html(data);
+                })
+
+            } else {
+                var Mdate = moment().subtract(parseInt(value), 'months').format();
+                //console.log("one month back ", Mdate);
+                $.get("/transactions", { 'from': Mdate }).then(function (data) {
+                    //console.log(data); 
+
+                    $("#tableContainer").html(data);
+                })
+            }
+            // Make an AJAX request to /transactions
+            // Put the results inside #tableContainer
+
+        }
+        $("#timeOptions input").change(function (event) {
+            populateTransactions(event.target.value);
+        });
+        populateTransactions("all");
+
+
+    </script>
     <div class="row justify-content-center">
 
         <br><br>
