@@ -2,7 +2,7 @@ DELETE FROM Users WHERE id IN (1,2,3);
 INSERT INTO Users
     (id, name, email ,password, createdAt, updatedAt)
 VALUES
-    (1, 'Mathew', "mathew@hotmail.com", "mathew123", NOW(), NOW());
+    (1, 'Mathew', "mathew@hotmail.com", "$2b$10$.Ag5Bv2ae3if0HpcETKx2..eujfO9y/EgAvGwybM2WZNSF5rtmgs2", NOW(), NOW());
 INSERT INTO Users
     (id, name, email ,password, createdAt, updatedAt)
 VALUES
